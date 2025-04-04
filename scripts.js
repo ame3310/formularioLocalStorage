@@ -14,7 +14,7 @@ Mostrar los datos de los contactos guardados en el DOM
 Crea un botón para borrar todos los contactos guardados en Local Storage*/ 
 
 let datos;
-
+let datosFormJSONparsed=[];
 document.getElementById('miFormulario').addEventListener('submit', function(e) {
    e.preventDefault();
 
@@ -23,12 +23,13 @@ document.getElementById('miFormulario').addEventListener('submit', function(e) {
       label: (document.querySelector(`label[for="${element.id}"]`) || 
             element.closest('label'))?.textContent?.trim() || ''
    }))
- 
+   datosFormJSONparsed=JSON.parse(localStorage.getItem('datosFormulario'))
+   
    localStorage.setItem('datosFormulario', JSON.stringify([
-         ...(JSON.parse(localStorage.getItem('datosFormulario') ?? '[]')), datos]
+         ...(datosFormJSONparsed ?? []), datos]
    ));
 
-   console.log('Datos recolectados: ', JSON.parse(localStorage.getItem('datosFormulario')))
+   console.log('Datos recolectados: ', datos)
 
    document.getElementById('miFormulario').reset()
 
@@ -39,5 +40,3 @@ document.getElementById('borrarContactos').addEventListener('click', function(e)
    localStorage.removeItem('datosFormulario');
    alert('Contactos eliminados correctamente');
 });
-
-

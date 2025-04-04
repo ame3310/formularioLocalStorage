@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos usuarios</title>
+</head>
+<body>
+    <form id="miFormulario">
+        <label>Nombre: 
+            <input type="text" class="datos" id="nombre" name="nombre" placeholder="Nombre">
+        </label><br>  
+
+        <label for="correo">Correo electrónico: 
+            <input type="email" class="datos" id="correo" name="correo" placeholder="ejemplo@gmail.com">
+        </label><br>
+            
+        <label for="mensaje">Mensaje: 
+            <textarea class="datos" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Mensaje..."></textarea>
+        </label><br>    
+
+        <label for="imagen">URL de la imagen: 
+            <input type="url" class="datos" id="imagen" name="imagen" placeholder="Inserte la URL de la imágen">
+        </label><br>  
+
+        <button type="submit">Enviar</button>  
+        <button id="borrarContactos" type="button">Borrar todos los contactos</button>
+    </form> 
+    <script src="scripts.js"></script>
+</body>
+</html>
